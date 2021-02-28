@@ -174,8 +174,9 @@ function buildHtml() {
     html.push(...team.filter(newEmployee => newEmployee.getRole() === "Manager").map(manager => renderCardHtml(manager, "Manager")));
     html.push(...team.filter(newEmployee => newEmployee.getRole() === "Engineer").map(engineer => renderCardHtml(engineer, "Engineer")));
     html.push(...team.filter(newEmployee => newEmployee.getRole() === "Intern").map(intern => renderCardHtml(intern, "Intern")));
-    const outputPath = `${__dirname}/dist/index.html`
-    fs.writeFileSync(outputPath,buildPage(globalCardString), "utf-8");
+    const outputPathIndex = `${__dirname}/dist/index.html`
+    fs.writeFileSync(outputPathIndex,buildPage(globalCardString), "utf-8");
+    buildStyleSheet()
 }
 
 function buildPage(cardString) {
@@ -234,7 +235,7 @@ function renderCardHtml(text, role) {
     };
     const cardHtml = `
     <div class="team-area col d-flex justify-content-center">
-    <div class="card employee-card">
+    <div class="card employee-card shadow rounded">
     <div class="card-header">
     <h2 class="card-title">${text.getName()}</h2>
     ${cardTitle}
@@ -250,4 +251,26 @@ function renderCardHtml(text, role) {
     </div>
     `;
     globalCardString += cardHtml;
+}
+
+function buildStyleSheet() {
+
+    const styleText = `
+    .team-heading {
+        background-color: #E84755;
+        color: white;
+    }
+    
+    .employee-card {
+        margin: 10px;
+        width: 18rem;
+    }
+    
+    .card-header {
+        background-color: #0477F7;
+        color: white;
+    }`
+
+    const outputPathStyle = `${__dirname}/dist/style.css`
+    fs.writeFileSync(outputPathStyle,styleText, "utf-8");
 }
