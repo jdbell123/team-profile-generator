@@ -1,0 +1,27 @@
+{
+  "name": "team-profile-generator",
+  "version": "1.0.0",
+  "description": "Create HTML page with informaiton on Software Engineering Team",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jdbell123/team-profile-generator.git"
+  },
+  "author": "John Bell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jdbell123/team-profile-generator/issues"
+  },
+  "homepage": "https://github.com/jdbell123/team-profile-generator#readme",
+  "dependencies": {
+    "email-validator": "^2.0.4",
+    "inquirer": "^7.3.3",
+    "jest": "^26.6.3"
+  }
+}
